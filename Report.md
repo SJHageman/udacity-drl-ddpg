@@ -11,6 +11,8 @@ There were 2 options for this project based on the number of agents, either 1 ag
 ## Implementation
 
 ### Learning Algorithm
+
+NOTE: the agent and model code is based on the ddpg-pendulum example from this course, (see here)(https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum).
 The algorithm that was selected for this project is Deep Deterministic Policy Gradient (DDPG).  This is an off-policy algorithm which can concurrently learn a policy and Q function, and it is suitable for solving tasks in a contiuous action space.  This method uses two neural networks, the actor and the critic networks. The actor network is used to determine the optimal actions given the current state, and the critic network is used to estimate the Q function.  Furthermore, both networks have corresponding target networks that are used to stabilize the learning process by providing a fixed target.
 
 Each training time step that occurs, the state, action, reward, and next state of all 20 agents are stored in a replay buffer.  Once the number of experiences is greater than the batch size of 256, the agent learns from a sample of the replay buffer at every time step. This consists of the actor estimating the optimal policy and the critic estimating the optimal Q function.  The corresponding rewards are returned for all 20 agents and they are averaged.
